@@ -22,5 +22,9 @@ client.on('error', (err) => {
 
 // Event listener for receiving messages on the subscribed channel
 client.on('message', (_, message) => {
-	
-})
+	console.log(message);
+	if (message === 'KILL_SERVER') {
+		client.unsubscribe('holberton school channel');
+		client.quit();
+	}
+});
